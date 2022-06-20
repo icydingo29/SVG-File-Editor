@@ -124,6 +124,29 @@ public:
 		return false;
 	}
 
+	bool isWithinCircle(int xP, int yP, int radiusP) override {
+		//Points of this rectangle
+		Point topLeft(this->startingPoint.getX(), this->startingPoint.getY());
+		Point topRight(this->startingPoint.getX() + width, this->startingPoint.getY());
+		Point bottomLeft(this->startingPoint.getX(), this->startingPoint.getY() + height);
+		Point bottomRight(this->startingPoint.getX() + width, this->startingPoint.getY() + height);
+
+		//checking for each individual point
+		if (!((topLeft.getX() - xP) * (topLeft.getX() - xP) + ((topLeft.getY() - yP) * (topLeft.getY() - yP)) <= radiusP * radiusP))
+			return false;
+
+		if (!((topRight.getX() - xP) * (topRight.getX() - xP) + ((topRight.getY() - yP) * (topRight.getY() - yP)) <= radiusP * radiusP))
+			return false;
+
+		if (!((bottomLeft.getX() - xP) * (bottomLeft.getX() - xP) + ((bottomLeft.getY() - yP) * (bottomLeft.getY() - yP)) <= radiusP * radiusP))
+			return false;
+
+		if (!((bottomRight.getX() - xP) * (bottomRight.getX() - xP) + ((bottomRight.getY() - yP) * (bottomRight.getY() - yP)) <= radiusP * radiusP))
+			return false;
+
+		return true;
+	}
+
 	void print() override {
 		cout << "rectangle " << startingPoint.getX() << " " << startingPoint.getY() << " " << width << " " << height << " " << fill << endl;
 	}

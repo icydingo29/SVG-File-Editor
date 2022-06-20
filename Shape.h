@@ -20,6 +20,7 @@ public:
 	
 	//other
 	virtual bool isWithinRectangle(int xP, int yP, int widthP, int heightP) = 0;
+	virtual bool isWithinCircle(int xP, int yP, int radiusP) = 0;
 
 	virtual void translate(int x, int y) = 0;
 

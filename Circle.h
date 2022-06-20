@@ -2,6 +2,7 @@
 #define CIRCLE_H
 #include "Shape.h"
 #include "myString.h"
+#include <cmath>
 class Circle : public Shape {
 private:
 	int radius;
@@ -86,6 +87,15 @@ public:
 		Point centre(this->startingPoint.getX(), this->startingPoint.getY());
 		return (centre.getX() <= bR.getX() - radius && centre.getY() <= bR.getY() - radius &&
 			    centre.getX() >= tL.getX() - radius && centre.getY() >= tL.getY() - radius);
+	}
+
+	bool isWithinCircle(int xP, int yP, int radiusP) override {
+		int distance = sqrt(((xP - this->startingPoint.getX()) * (xP - this->startingPoint.getX())) + ((yP - this->startingPoint.getY()) * (yP - this->startingPoint.getY())));
+
+		if (distance + this->radius <= radiusP)
+			return true;
+
+		return false;
 	}
 
 	void print() override {
