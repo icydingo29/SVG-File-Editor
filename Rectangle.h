@@ -67,29 +67,22 @@ public:
 	}
 
 	void loadValues(myString str, bool &validValues) override {
-		//here we change all minuses to empty spaces
 		for (size_t i = 0; i < str.getLength(); i++){
 			if (str.getStr()[i] == '-')
 				str.getStr()[i] = ' ';
 		}
 
-		//removing consecutive spaces
 		str.removeConsecutiveSpaces();
 
-		//we enter the colour first for validation purposes//blue red green yellow purple
 		myString colour;
 		colour = str.getLastWord();
-		if (colour.toInt() != -1) {
-			cout << "Invalid or no fill entered!" << '\n' << '\n';
-			validValues = false;
-			return;
-		}
 
-		if (!(colour == "red" || colour == "blue" || colour == "green" || colour == "yellow")) {
+		if (!isValidColour(colour)) {
 			cout << "Invalid fill entered!" << '\n' << '\n';
 			validValues = false;
 			return;
 		}
+		
 
 		Vector<myString> inputVector = str.toVector();
 		if (inputVector.getSize() < 7) {

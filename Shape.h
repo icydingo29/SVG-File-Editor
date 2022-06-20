@@ -23,6 +23,16 @@ public:
 	virtual bool isWithinCircle(int xP, int yP, int radiusP) = 0;
 	virtual void translate(int x, int y) = 0;
 
+	bool isValidColour(myString colour) {
+		if (colour.toInt() != -1) 
+			return false;
+
+		if (!(colour == "red" || colour == "blue" || colour == "green" || colour == "yellow")) 
+			return false;
+
+		return true;
+	}
+
 	virtual void print() = 0;
 };
 #endif // !_SHAPE_H_
