@@ -101,7 +101,10 @@ public:
 	}
 
 	std::ostream& writeValuesToFile(std::ostream& o) override {
-		 return o << "  <rect x=" << char(34) << this->startingPoint.getX() <<char(34)<< " y=" << char(34) << this->startingPoint.getY() <<char(34)<< " width=" << char(34) << this->width << char(34) << " height=" << char(34) << this->height << char(34) << " fill=" << char(34) << this->fill<<char(34) << " />"<<'\n';
+		 return o << "  <rect x=" << char(34) << this->startingPoint.getX() <<char(34)
+			 << " y=" << char(34) << this->startingPoint.getY() <<char(34)<< " width=" << char(34) 
+			 << this->width << char(34) << " height=" << char(34) << this->height << char(34) 
+			 << " fill=" << char(34) << this->fill<<char(34) << " />"<<'\n';
 	}
 
 	void translate(int x, int y) override {
@@ -136,30 +139,29 @@ public:
 		Point bottomRight(this->startingPoint.getX() + width, this->startingPoint.getY() + height);
 
 		//checking for each individual point
-		if (!((topLeft.getX() - xP) * (topLeft.getX() - xP) + ((topLeft.getY() - yP) * (topLeft.getY() - yP)) <= radiusP * radiusP))
+		if (!((topLeft.getX() - xP) * (topLeft.getX() - xP) + ((topLeft.getY() - yP) * (topLeft.getY() - yP))
+			<= radiusP * radiusP))
 			return false;
 
-		if (!((topRight.getX() - xP) * (topRight.getX() - xP) + ((topRight.getY() - yP) * (topRight.getY() - yP)) <= radiusP * radiusP))
+		if (!((topRight.getX() - xP) * (topRight.getX() - xP) + ((topRight.getY() - yP) * (topRight.getY() - yP))
+			<= radiusP * radiusP))
 			return false;
 
-		if (!((bottomLeft.getX() - xP) * (bottomLeft.getX() - xP) + ((bottomLeft.getY() - yP) * (bottomLeft.getY() - yP)) <= radiusP * radiusP))
+		if (!((bottomLeft.getX() - xP) * (bottomLeft.getX() - xP) + ((bottomLeft.getY() - yP) * (bottomLeft.getY() - yP))
+			<= radiusP * radiusP))
 			return false;
 
-		if (!((bottomRight.getX() - xP) * (bottomRight.getX() - xP) + ((bottomRight.getY() - yP) * (bottomRight.getY() - yP)) <= radiusP * radiusP))
+		if (!((bottomRight.getX() - xP) * (bottomRight.getX() - xP) + ((bottomRight.getY() - yP) * (bottomRight.getY() - yP))
+			<= radiusP * radiusP))
 			return false;
 
 		return true;
 	}
 
 	void print() override {
-		cout << "rectangle " << startingPoint.getX() << " " << startingPoint.getY() << " " << width << " " << height << " " << fill << endl;
+		cout << "rectangle " << startingPoint.getX() << " " << startingPoint.getY() 
+			 << " " << width << " " << height << " " << fill << endl;
 	}
-
-	//friend std::ostream& operator<<(std::ostream& o, Rectangle& rectangleParam) {
-	//	//o << "rectangle " << rectangleParam.startingPoint.getX() << " " << rectangleParam.startingPoint.getY() << " " << rectangleParam.width << " " << rectangleParam.height << " " << rectangleParam.fill;
-	//	o << "  <rect x =" << char(34) << rectangleParam.startingPoint.getX() << char(34) << " y=" << char(34) << rectangleParam.startingPoint.getY() << char(34) << " width=" << char(34) << rectangleParam.width << char(34) << " height=" << char(34) << rectangleParam.height << char(34) << " fill=" << char(34) << rectangleParam.fill << char(34) << " />" << '\n';
-	//	return o;
-	//}
 };
 
 #endif // !RECTANGLE_H

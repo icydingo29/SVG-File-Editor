@@ -10,6 +10,5 @@
 using namespace std;
 int main() {
 	Runner runner;
-	runner.run();
-	
+	runner.run();	
 }

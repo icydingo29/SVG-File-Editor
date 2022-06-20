@@ -21,10 +21,8 @@ public:
 	//other
 	virtual bool isWithinRectangle(int xP, int yP, int widthP, int heightP) = 0;
 	virtual bool isWithinCircle(int xP, int yP, int radiusP) = 0;
-
 	virtual void translate(int x, int y) = 0;
 
 	virtual void print() = 0;
-	//friend std::ostream& operator<<(std::ostream& o, Shape* shapeParam) { return o<<shapeParam->startingPoint.getX()<< shapeParam->startingPoint.getY() << shapeParam->fill<<'\n'; };
 };
 #endif // !_SHAPE_H_

@@ -15,8 +15,7 @@ myString::myString(const char* strParam) {
 
 myString::myString(myString const& myStringParam) {
     char* tempString = new char[myStringParam.length + 2];
-    for (size_t i = 0; i < myStringParam.length + 1; i++)
-    {
+    for (size_t i = 0; i < myStringParam.length + 1; i++) {
         tempString[i] = myStringParam.str[i];
     }
     tempString[myStringParam.length + 1] = '\0';
@@ -27,8 +26,7 @@ myString::myString(myString const& myStringParam) {
 
 myString::myString(unsigned short size) {
     char* tempString = new char[size + 1];
-    for (size_t i = 0; i < size + 1; i++)
-    {
+    for (size_t i = 0; i < size + 1; i++) {
         tempString[i] = ' ';
     }
     str = tempString;
@@ -38,8 +36,7 @@ myString::myString(unsigned short size) {
 myString& myString::operator=(myString const& myStringParam) {
     if (this != &myStringParam) {
         char* tempString = new char[myStringParam.length + 2];
-        for (size_t i = 0; i < myStringParam.length + 1; i++)
-        {
+        for (size_t i = 0; i < myStringParam.length + 1; i++) {
             tempString[i] = myStringParam.str[i];
         }
         tempString[myStringParam.length + 1] = '\0';
@@ -67,8 +64,7 @@ myString::~myString() {
 
 void myString::pushBack(const char& letter) {
     char* tempString = new char[length + 2];
-    for (size_t i = 0; i < length; i++)
-    {
+    for (size_t i = 0; i < length; i++) {
         tempString[i] = str[i];
     }
     tempString[length] = letter;

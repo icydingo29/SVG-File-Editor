@@ -21,8 +21,7 @@ public:
 		this->radius = inputVector.getAt(5).getIntFromWord();
 
 		myString colour;
-		for (size_t i = 0; i < str.getLength(); i++)
-		{
+		for (size_t i = 0; i < str.getLength(); i++) {
 			if (str.getStr()[i] == 'f' && str.getStr()[i + 1] == 'i' && str.getStr()[i + 2] == 'l' && str.getStr()[i + 3] == 'l') {
 				i += 6;
 				while (true) {
@@ -72,7 +71,9 @@ public:
 	}
 
 	std::ostream& writeValuesToFile(std::ostream& o) override {
-		return o << "  <circle cx=" << char(34) << this->startingPoint.getX() << char(34) << " cy=" << char(34) << this->startingPoint.getY() << char(34) << " r=" << char(34) << this->radius << char(34) << " fill=" << char(34) << this->fill << char(34) << " />" << '\n';
+		return o << "  <circle cx=" << char(34) << this->startingPoint.getX() << char(34) 
+			<<" cy=" << char(34) << this->startingPoint.getY() << char(34) << " r=" << char(34)
+			<<this->radius << char(34) << " fill=" << char(34) << this->fill << char(34) << " />" << '\n';
 	}
 
 	void translate(int x, int y) override {
@@ -102,10 +103,6 @@ public:
 	void print() override {
 		cout << "circle " << startingPoint.getX() << " " << startingPoint.getY() << " " << radius << " " << fill << endl;
 	}
-
-	/*friend std::ostream& operator<<(std::ostream& o, Circle& circleParam) {
-		return o << "  <circle cx =" << char(34) << circleParam.startingPoint.getX() << char(34) << " cy=" << char(34) << circleParam.startingPoint.getY() << char(34) << " r=" << char(34) << circleParam.radius << char(34) << " fill=" << char(34) << circleParam.fill << char(34) << " />" << '\n';
-	}*/
 };
 
 #endif // !CIRCLE_H

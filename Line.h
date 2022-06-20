@@ -16,15 +16,17 @@ public:
 
 	void loadValuesFromFile(myString str) override {
 		Vector<myString> inputVector = str.toVector();
+
 		this->startingPoint.setX(inputVector.getAt(3).getIntFromWord());
 		this->startingPoint.setY(inputVector.getAt(4).getIntFromWord());
 		this->secondPoint.setX(inputVector.getAt(5).getIntFromWord());
 		this->secondPoint.setX(inputVector.getAt(6).getIntFromWord());
 
 		myString colour;
-		for (size_t i = 0; i < str.getLength(); i++)
-		{
-			if (str.getStr()[i] == 's' && str.getStr()[i + 1] == 't' && str.getStr()[i + 2] == 'r' && str.getStr()[i + 3] == 'o' && str.getStr()[i + 4] == 'k' && str.getStr()[i + 5] == 'e') {
+
+		for (size_t i = 0; i < str.getLength(); i++) {
+			if (str.getStr()[i] == 's' && str.getStr()[i + 1] == 't' && str.getStr()[i + 2] == 'r' && 
+				str.getStr()[i + 3] == 'o' && str.getStr()[i + 4] == 'k' && str.getStr()[i + 5] == 'e') {
 				i += 8;
 				while (true) {
 					if (str.getStr()[i] != char(34)) {
@@ -35,8 +37,8 @@ public:
 						break;
 				}
 			}
-
 		}
+
 		this->fill = colour;
 	}
 
@@ -49,9 +51,9 @@ public:
 
 		str.removeConsecutiveSpaces();
 
-		//we enter the colour first for validation purposes//blue red green yellow purple
 		myString colour;
 		colour = str.getLastWord();
+
 		if (colour.toInt() != -1) {
 			cout << "Invalid or no fill entered!" << '\n' << '\n';
 			validValues = false;
@@ -74,7 +76,10 @@ public:
 	}
 
 	std::ostream& writeValuesToFile(std::ostream& o) override {
-		return o << "  <line x1=" << char(34) << this->startingPoint.getX() << char(34) << " y1=" << char(34) << this->startingPoint.getY() << char(34) << " x2=" << char(34) << this->secondPoint.getX() << char(34) << " y2=" << char(34) << this->secondPoint.getY() << char(34) << " stroke=" << char(34) << this->fill << char(34) << " />" << '\n';
+		return o << "  <line x1=" << char(34) << this->startingPoint.getX() << char(34) 
+			<<" y1=" << char(34) << this->startingPoint.getY() << char(34) << " x2=" << char(34)
+			<<this->secondPoint.getX() << char(34) << " y2=" << char(34) << this->secondPoint.getY()
+			<<char(34) << " stroke=" << char(34) << this->fill << char(34) << " />" << '\n';
 	}
 
 	void translate(int x, int y) override {
@@ -108,7 +113,8 @@ public:
 	}
 
 	void print() override {
-		cout << "line " << startingPoint.getX() << " " << startingPoint.getY() << " " << secondPoint.getX() << " " << secondPoint.getY() << " " << fill << endl;
+		cout << "line " << startingPoint.getX() << " " << startingPoint.getY() << " "
+			 << secondPoint.getX() << " " << secondPoint.getY() << " " << fill << endl;
 	}
 
 };
