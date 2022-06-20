@@ -32,10 +32,10 @@ public:
 						cout << "No filename entered!" << '\n' << '\n';
 					}
 					else {
-						openFile(inputVector.getArr()[1], shapeVector);
+						openFile(inputVector.getAt(1), shapeVector);//getarr
 
 						openedFile = true;
-						openedFileName = inputVector.getArr()[1];
+						openedFileName = inputVector.getAt(1);//getarr
 					}
 				}
 			}
@@ -77,9 +77,9 @@ public:
 					cout << "There isn't an opened file!" << '\n' << '\n';
 				}
 				else {
-					saveFile(inputVector.getArr()[1], shapeVector);
+					saveFile(inputVector.getAt(1), shapeVector);
 					
-					cout << "Successfully saved as " << char(34) << inputVector.getArr()[1] << char(34) << "!" << '\n' << '\n';
+					cout << "Successfully saved as " << char(34) << inputVector.getAt(1).getStr() << char(34) << "!" << '\n' << '\n';
 					
 					openedFile = false;
 					openedFileName = "";
@@ -146,11 +146,19 @@ public:
 			}
 
 			else if (inputVector.getFirst() == "within") {
-				if (inputVector.getSize()<5) {
-					cout << "Invalid input!" << '\n' << '\n';
+				if (!openedFile) {
+					cout << "There isn't an opened file!" << '\n' << '\n';
 				}
-				else if (input.contains("rectangle")) {
-					withinRectangle(inputVector, shapeVector);
+				else {
+					if (inputVector.getSize() < 5) {
+						cout << "Invalid input!" << '\n' << '\n';
+					}
+					else if (input.contains("rectangle")) {
+						withinRectangle(inputVector, shapeVector);
+					}
+					else if (input.contains("circle")) {
+						withinCircle(inputVector, shapeVector);
+					}
 				}
 			}
 

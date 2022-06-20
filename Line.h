@@ -94,6 +94,18 @@ public:
 		return false;
 	}
 
+	bool isWithinCircle(int xP, int yP, int radiusP) override {
+		//checking for the first point
+		if (!(((this->startingPoint.getX() - xP) * (this->startingPoint.getX() - xP)) + ((this->startingPoint.getY() - yP) * (this->startingPoint.getY() - yP)) <= radiusP * radiusP))
+			return false;
+
+		//checking the second point
+		if (!((this->secondPoint.getX() - xP) * (this->secondPoint.getX() - xP) + ((this->secondPoint.getY() - yP) * (this->secondPoint.getY() - yP)) <= radiusP * radiusP))
+			return false;
+
+		return true;
+	}
+
 	void print() override {
 		cout << "line " << startingPoint.getX() << " " << startingPoint.getY() << " " << secondPoint.getX() << " " << secondPoint.getY() << " " << fill << endl;
 	}

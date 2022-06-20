@@ -131,8 +131,8 @@ void printHelp() {
 void createShape(myString input, Vector<Shape*>& shapeVector, bool changesMade) {
 	//list of possible shapes
 	Rectangle rec{ 1, 1, 1, 1, "validation" };
-	Circle circle{ 1,1,1,"validation" };
-	Line line{ 1,1,1,1,"validation" };
+	Circle circle{ 1, 1, 1, "validation" };
+	Line line{ 1, 1, 1, 1, "validation" };
 
 	if (input.contains("rectangle")) {
 		bool validValues = true;
@@ -256,6 +256,40 @@ void withinRectangle(Vector<myString> inputVector, Vector<Shape*>& shapeVector) 
 	if (noFiguresWithin) {
 		cout << "No figures are located within rectangle ";
 		for (size_t i = 0; i < 4; i++) {
+			cout << numbers[i] << " ";
+		}
+	}
+	cout << '\n' << '\n';
+}
+
+void withinCircle(Vector<myString> inputVector, Vector<Shape*>& shapeVector) {
+	if (inputVector.getSize() < 5) {
+		cout << "Invalid input!" << '\n' << '\n';
+		return;
+	}
+
+	int numbers[] = { 0, 0, 0 };
+
+	for (size_t i = 2; i < 5; i++) {
+		numbers[i - 2] = inputVector.getAt(i).toInt();
+	}
+
+	int counter = 1;
+	bool noFiguresWithin = true;
+
+	for (size_t i = 0; i < shapeVector.getSize(); i++) {
+		if (shapeVector.getAt(i)->isWithinCircle(numbers[0], numbers[1], numbers[2])) {
+			noFiguresWithin = false;
+			cout << counter << ". ";
+			shapeVector.getAt(i)->print();
+			counter++;
+		}
+
+	}
+
+	if (noFiguresWithin) {
+		cout << "No figures are located within circle ";
+		for (size_t i = 0; i < 3; i++) {
 			cout << numbers[i] << " ";
 		}
 	}
