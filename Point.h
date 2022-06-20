@@ -2,6 +2,9 @@
 #define POINT_H
 class Point
 {
+private:
+	int x, y;
+
 public:
 	Point();
 	Point(int xParam, int yParam);
@@ -19,8 +22,6 @@ public:
 	bool operator<=(Point const& pointParam);
 
 	void print();
-private:
-	int x, y;
 };
 
 #endif // !POINT_H
