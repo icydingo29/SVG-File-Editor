@@ -6,7 +6,8 @@ class Rectangle : public Shape {
 private:
 	int width, height;
 public:
-	Rectangle(int x, int y, int widthParam, int heightParam, myString fillParam) : Shape(x, y, fillParam), width(widthParam), height(heightParam) {};
+	Rectangle(int x, int y, int widthParam, int heightParam, myString fillParam) : 
+		Shape(x, y, fillParam), width(widthParam), height(heightParam) {};
 
 	Shape* clone() override {
 		return new Rectangle(*this);
@@ -71,6 +72,9 @@ public:
 			if (str.getStr()[i] == '-')
 				str.getStr()[i] = ' ';
 		}
+
+		//removing consecutive spaces
+		str.removeConsecutiveSpaces();
 
 		//we enter the colour first for validation purposes//blue red green yellow purple
 		myString colour;
