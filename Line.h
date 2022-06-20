@@ -15,12 +15,45 @@ public:
 	}
 
 	void loadValuesFromFile(myString str) override {
-		Vector<myString> inputVector = str.toVector();
+		int numbers[] = { 0, 0, 0, 0};
+		int numbersIndex = 0;
 
-		this->startingPoint.setX(inputVector.getAt(3).getIntFromWord());
-		this->startingPoint.setY(inputVector.getAt(4).getIntFromWord());
-		this->secondPoint.setX(inputVector.getAt(5).getIntFromWord());
-		this->secondPoint.setX(inputVector.getAt(6).getIntFromWord());
+		int num = 0;
+		myString numToBe;
+
+		for (size_t i = 0; i < str.getLength(); i++) {
+
+			if (str.getStr()[i]==char(34)) {
+
+				i++;
+				while (true) {
+					if (!(str.getStr()[i] > 47 && str.getStr()[i] < 58)) {
+						if(str.getStr()[i+1]!='\0')
+							i++;
+
+						break;
+					}
+					else {
+						numToBe.pushBack(str.getStr()[i]);
+						i++;
+					}
+				}
+
+				num = numToBe.toInt();
+				numToBe.empty();
+
+				if (num != -1 && numbersIndex!=4) {
+					numbers[numbersIndex] = num;
+					numbersIndex++;
+				}
+
+			}
+		}
+
+		this->startingPoint.setX(numbers[0]);
+		this->startingPoint.setY(numbers[1]);
+		this->secondPoint.setX(numbers[2]);
+		this->secondPoint.setY(numbers[3]);
 
 		myString colour;
 

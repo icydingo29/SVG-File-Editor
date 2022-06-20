@@ -28,12 +28,12 @@ public:
 				
 				i++;
 				while (true) {
-					if (!(str.getStr()[i] > 47 && str.getStr()[i] < 58)) {//
+					if (!(str.getStr()[i] > 47 && str.getStr()[i] < 58)) {
 						break;
 					}
 					else {
-						numToBe.pushBack(str.getStr()[i]);//
-						i++;//
+						numToBe.pushBack(str.getStr()[i]);
+						i++;
 					}
 				}
 
