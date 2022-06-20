@@ -69,9 +69,10 @@ void openFile(myString fileName, Vector<Shape*> &shapeVector) {
 		cout << "File "<<char(34) << fileName.getStr() << char(34) << " opened!" << '\n' << '\n';
 
 		myString readString;
-		char line[120];//
+		char line[120];
+
 		Rectangle rect{ 1,1,1,1,"red" };
-		Circle circle(1, 1, 1, "red");////
+		Circle circle(1, 1, 1, "red");
 		Line lineObj(1, 1, 1, 1, "red");
 
 		for (size_t i = 0;; i++){	
@@ -93,6 +94,7 @@ void openFile(myString fileName, Vector<Shape*> &shapeVector) {
 				shapeVector.pushBack(lineObj.clone());
 			}
 		}
+
 		fileRead.close();
 	}
 

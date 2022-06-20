@@ -7,7 +7,8 @@ class Line : public Shape {
 private:
 	Point secondPoint;
 public:
-	Line(int x1, int y1, int x2, int y2, myString fillParam) : Shape(x1, y1, fillParam), secondPoint(x2, y2) {};
+	Line(int x1, int y1, int x2, int y2, myString fillParam) : 
+		Shape(x1, y1, fillParam), secondPoint(x2, y2) {};
 
 	Shape* clone() override {
 		return new Line(*this);

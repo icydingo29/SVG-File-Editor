@@ -7,7 +7,8 @@ class Circle : public Shape {
 private:
 	int radius;
 public:
-	Circle(int x, int y, int radiusParam, myString fillParam) : Shape(x, y, fillParam), radius(radiusParam) {};
+	Circle(int x, int y, int radiusParam, myString fillParam) : 
+		Shape(x, y, fillParam), radius(radiusParam) {};
 
 	Shape* clone() override {
 		return new Circle(*this);
