@@ -85,6 +85,12 @@ public:
 			return;
 		}
 
+		if (!(colour == "red" || colour == "blue" || colour == "green" || colour == "yellow")) {
+			cout << "Invalid fill entered!" << '\n' << '\n';
+			validValues = false;
+			return;
+		}
+
 		Vector<myString> inputVector = str.toVector();
 		if (inputVector.getSize() < 7) {
 			cout<<"Invalid input!" << '\n' << '\n';
