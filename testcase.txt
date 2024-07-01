@@ -1,0 +1,40 @@
+close
+save
+saveas test
+help
+open test.svg
+create rectangle 0 0 50 50 blue
+print
+save
+open test.svg
+print
+saveas test2.svg
+open test2.svg
+print
+create circle 3 3 3 yellow
+create line 0 0 3 3 red
+print
+exit
+save
+open test2.svg
+print
+create rectangle 0 0 50 50 blue
+print
+erase 4
+print
+translate horizontal=17 vertical=18
+print
+translate 3 vertical=2 horizontal=3
+print
+within rectangle 0 0 60 60
+within rectangle 0 0 1 1
+within circle 20 20 4
+print
+create rectangle 5 5 5 5 yellow
+print
+close
+open test2.svg
+print
+exit
+close
+exit
